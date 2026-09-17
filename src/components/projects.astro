@@ -1,0 +1,146 @@
+---
+interface Project {
+  title: string;
+  description: string;
+  tags: string[];
+  duration: string;
+  image: string;
+  link: string;
+  preview: string;
+  status: string;
+}
+
+const projects: Project[] = [
+  {
+    title: "Group Expense Manager",
+    description: "Automatically calculates individual expenses & balances in group trips/events. Built Flutter frontend integrated with ASP.NET Core REST APIs and dynamic financial charts.",
+    tags: ["Flutter", "ASP.NET Core", "REST API", "Charts"],
+    duration: "Nov 2024 - Feb 2025",
+    image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80",
+    link: "https://github.com/hetvipedhadiya",
+    preview: "https://github.com/hetvipedhadiya",
+    status: "In Development",
+  },
+  {
+    title: "Medicine Recommended System",
+    description: "Web-based healthcare assistant using Flask for symptom-driven disease guidance, precautions, medications, diet plans, and voice-based speech recognition.",
+    tags: ["Python", "Flask", "Speech Recognition", "Render"],
+    duration: "Feb 2025 - March 2025",
+    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80",
+    link: "https://github.com/hetvipedhadiya",
+    preview: "https://medicinrecommendedsystem-3.onrender.com",
+    status: "Live on Render",
+  },
+  {
+    title: "Stock Market Analysis",
+    description: "Machine Learning web application predicting stock trading volumes using Random Forest Regressor trained on historical stock prices and date features.",
+    tags: ["Machine Learning", "Scikit-Learn", "Flask", "Python"],
+    duration: "March 2025 - April 2025",
+    image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&q=80",
+    link: "https://github.com/hetvipedhadiya",
+    preview: "https://lnkd.in/eiv_kSBF",
+    status: "Live on Render",
+  },
+];
+---
+
+<section
+  id="projects"
+  class="py-12 border-t border-[#ffffff10] text-[var(--white)]"
+>
+  <div class="max-w-5xl mx-auto">
+    <h2 class="text-lg text-[var(--sec)] mb-2 shiny-sec">My Work</h2>
+    <h3 class="text-4xl md:text-5xl font-medium mb-8">Featured Projects</h3>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {
+        projects.map((project) => (
+          <div class="group flex flex-col bg-[#1414149c] border border-[var(--white-icon-tr)] rounded-2xl overflow-hidden hover:border-[var(--sec)] transition duration-300">
+            <div class="overflow-hidden h-48 relative">
+              <img
+                src={project.image}
+                alt={project.title}
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <span class="absolute top-3 right-3 text-xs px-2.5 py-1 rounded-full bg-black/70 backdrop-blur-md text-[var(--white)] font-medium border border-white/10">
+                {project.status}
+              </span>
+            </div>
+            <div class="p-5 flex flex-col flex-grow justify-between space-y-4">
+              <div>
+                <span class="text-xs text-[var(--sec)] font-semibold uppercase tracking-wider">{project.duration}</span>
+                <h4 class="text-xl font-bold mt-1 text-[var(--white)]">{project.title}</h4>
+                <p class="text-sm text-[var(--white-icon)] mt-2 leading-relaxed">
+                  {project.description}
+                </p>
+              </div>
+
+              <div>
+                <div class="flex flex-wrap gap-1.5 mb-4">
+                  {project.tags.map((tag) => (
+                    <span class="text-[11px] px-2 py-0.5 rounded bg-[var(--white-icon-tr)] text-[var(--white-icon)] font-mono">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                <div class="flex items-center justify-between pt-2 border-t border-[#ffffff10]">
+                  <a
+                    target="_blank"
+                    href={project.link}
+                    aria-label="GitHub Repository"
+                    class="text-xs flex items-center gap-1.5 text-[var(--white-icon)] hover:text-white transition duration-300"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      class="size-4"
+                    >
+                      <path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z" />
+                    </svg>
+                    <span>Repository</span>
+                  </a>
+                  <a
+                    target="_blank"
+                    href={project.preview}
+                    aria-label="View Project"
+                    class="text-xs flex items-center gap-1 text-[var(--sec)] hover:underline font-medium"
+                  >
+                    <span>View Project</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      class="size-3.5"
+                    >
+                      <path d="M16.0037 9.41421L7.39712 18.0208L5.98291 16.6066L14.5895 8H7.00373V6H18.0037V17H16.0037V9.41421Z" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+    <a
+      target="_blank"
+      href="https://github.com/hetvipedhadiya"
+      aria-label="GitHub"
+      class="w-full flex items-center justify-center gap-2 mt-9 text-[var(--white-icon)] hover:text-white transition duration-300 ease-in-out border border-[var(--white-icon-tr)] p-3 rounded-full bg-[#1414149c] hover:bg-[var(--white-icon-tr)] hover:scale-[1.02]"
+    >
+      <span class="md:text-lg text-md">More projects on GitHub</span>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        class="size-6"
+      >
+        <path
+          d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.5135 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z"
+        ></path>
+      </svg>
+    </a>
+  </div>
+</section>

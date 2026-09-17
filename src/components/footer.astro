@@ -1,0 +1,119 @@
+---
+import LikeButton from "../React/LikeButton.tsx";
+
+const currentYear = new Date().getFullYear();
+
+const hobbies = [
+  { name: "Travelling", icon: "✈️", desc: "Exploring new places & cultures" },
+  { name: "Driving", icon: "🚗", desc: "Enjoying road trips & long drives" },
+];
+---
+
+<footer class="w-full py-12 border-t border-[#ffffff10] bg-[#0a0a0a]">
+  <div class="max-w-5xl mx-auto px-4 md:px-0">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+      <!-- Column 1: Personal Branding & Socials -->
+      <div class="flex flex-col space-y-4">
+        <div>
+          <h3 class="text-2xl font-bold text-[var(--white)]">Hetvi Pedhadiya</h3>
+          <p class="text-sm text-[var(--white-icon)] mt-1">
+            Machine Learning & Full Stack Developer
+          </p>
+          <p class="text-xs text-[var(--sec)] mt-1 font-medium">
+            📍 Rajkot, Gujarat, India
+          </p>
+        </div>
+
+        <div class="flex items-center space-x-4 pt-2">
+          {
+            [
+              {
+                href: "https://github.com/hetvipedhadiya",
+                icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6"><path d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.501 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z"></path></svg>',
+                label: "GitHub",
+              },
+              {
+                href: "https://linkedin.com/in/hetvi-pedhadiya-010875315",
+                icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6"><path d="M18.3362 18.339H15.6707V14.1622C15.6707 13.1662 15.6505 11.8845 14.2817 11.8845C12.892 11.8845 12.6797 12.9683 12.6797 14.0887V18.339H10.0142V9.75H12.5747V10.9207H12.6092C12.967 10.2457 13.837 9.53325 15.1367 9.53325C17.8375 9.53325 18.337 11.3108 18.337 13.6245V18.339H18.3362ZM7.00373 8.57475C6.14573 8.57475 5.45648 7.88025 5.45648 7.026C5.45648 6.1725 6.14648 5.47875 7.00373 5.47875C7.85873 5.47875 8.55173 6.1725 8.55173 7.026C8.55173 7.88025 7.85798 8.57475 7.00373 8.57475ZM8.34023 18.339H5.66723V9.75H8.34023V18.339ZM19.6697 3H4.32923C3.59498 3 3.00098 3.5805 3.00098 4.29675V19.7033C3.00098 20.4202 3.59498 21 4.32923 21H19.6675C20.401 21 21.001 20.4202 21.001 19.7033V4.29675C21.001 3.5805 20.401 3 19.6675 3H19.6697Z"></path></svg>',
+                label: "LinkedIn",
+              },
+              {
+                href: "mailto:pedhadiyahetvi231@gmail.com",
+                icon: '<svg xmlns="http://www.w3.org/2000/svg" width="1.8em" height="1.8em" viewBox="0 0 24 24"><path fill="currentColor" d="m18.73 5.41l-1.28 1L12 10.46L6.55 6.37l-1.28-1A2 2 0 0 0 2 7.05v11.59A1.36 1.36 0 0 0 3.36 20h3.19v-7.72L12 16.37l5.45-4.09V20h3.19A1.36 1.36 0 0 0 22 18.64V7.05a2 2 0 0 0-3.27-1.64"/></svg>',
+                label: "Email",
+              },
+            ].map((link) => (
+              <a
+                href={link.href}
+                target="_blank"
+                class="p-2 rounded-xl bg-[#1414149c] border border-[var(--white-icon-tr)] text-[var(--white-icon)] hover:text-white hover:border-[var(--sec)] transition duration-300"
+                aria-label={link.label}
+              >
+                <div set:html={link.icon} />
+              </a>
+            ))
+          }
+        </div>
+        <div class="pt-1">
+          <LikeButton client:load />
+        </div>
+      </div>
+
+      <!-- Column 2: Hobbies & Personal Interests (From Resume) -->
+      <div class="flex flex-col space-y-3">
+        <h4 class="text-sm font-semibold uppercase tracking-wider text-[var(--sec)]">
+          Hobbies & Interests
+        </h4>
+        <div class="space-y-2.5">
+          {
+            hobbies.map((hobby) => (
+              <div class="p-3 rounded-xl bg-[#1414149c] border border-[var(--white-icon-tr)] flex items-center gap-3">
+                <span class="text-2xl">{hobby.icon}</span>
+                <div>
+                  <h5 class="text-sm font-semibold text-[var(--white)]">{hobby.name}</h5>
+                  <p class="text-xs text-[var(--white-icon)]">{hobby.desc}</p>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Column 3: Personal Philosophy & Tech Stack -->
+      <div class="flex flex-col justify-between space-y-4">
+        <div>
+          <h4 class="text-sm font-semibold uppercase tracking-wider text-[var(--sec)]">
+            Philosophy
+          </h4>
+          <p class="text-xs text-[var(--white-icon)] italic leading-relaxed mt-2">
+            "Dedicated to continuous learning, data-driven innovation, and creating accessible software tools that empower users with confidence."
+          </p>
+        </div>
+
+        <div class="pt-2 border-t border-[#ffffff10]">
+          <div class="flex flex-wrap items-center gap-2 text-xs text-[var(--white-icon)]">
+            <span>Built with Astro</span>
+            <span>•</span>
+            <span>TailwindCSS</span>
+            <span>•</span>
+            <span class="text-[var(--sec)]">Render</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Copyright -->
+    <div class="mt-10 pt-6 border-t border-[#ffffff10] flex flex-col sm:flex-row items-center justify-between text-xs text-[var(--white-icon)] gap-4">
+      <p>Copyright © {currentYear} Hetvi Pedhadiya. All rights reserved.</p>
+      <a
+        href="#home"
+        class="flex items-center gap-1 text-[var(--white)] hover:text-[var(--sec)] transition font-medium"
+      >
+        <span>Back to Top</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="size-4" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 4l-8 8h5v8h6v-8h5z"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</footer>

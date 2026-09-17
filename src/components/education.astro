@@ -1,0 +1,91 @@
+---
+interface EducationItem {
+  degree: string;
+  institution: string;
+  duration: string;
+  score: string;
+}
+
+interface CertItem {
+  title: string;
+  issuer: string;
+  date: string;
+  details?: string;
+}
+
+const educationList: EducationItem[] = [
+  {
+    degree: "Bachelor of Engineering in Computer Engineering",
+    institution: "Darshan University",
+    duration: "2022 - 2026",
+    score: "CGPA: 9.15"
+  },
+  {
+    degree: "Higher Secondary Education (12th Grade)",
+    institution: "Shree Kanya Vidyalaya, Rajkot",
+    duration: "2021 - 2022",
+    score: "Percentage: 78.83%"
+  },
+  {
+    degree: "Secondary Education (10th Grade)",
+    institution: "Bardanwala Kanya Vidyalaya, Rajkot",
+    duration: "2019 - 2020",
+    score: "Percentage: 78.00%"
+  }
+];
+
+const certList: CertItem[] = [
+  { title: "NPTEL: Python for Data Science", issuer: "NPTEL", date: "Aug 2024", details: "Achieved Score: 71%" },
+  { title: "SQL Certificate", issuer: "HackerRank", date: "Aug 2024", details: "Completed SQL Challenges" },
+  { title: "Mobile Application Development", issuer: "Udemy", date: "Sept 2024" },
+  { title: "Database Management System", issuer: "Udemy", date: "Jan 2025" },
+  { title: "Python Programming", issuer: "Udemy", date: "April 2024" }
+];
+---
+
+<section id="education" class="py-12 border-t border-[#ffffff10] text-[var(--white)]">
+  <div class="max-w-5xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+      <!-- Education Section -->
+      <div>
+        <h2 class="text-lg text-[var(--sec)] mb-2 shiny-sec">Background</h2>
+        <h3 class="text-4xl md:text-5xl font-medium mb-8">Education</h3>
+        <div class="space-y-6">
+          {
+            educationList.map((edu) => (
+              <div class="p-5 rounded-2xl bg-[#1414149c] border border-[var(--white-icon-tr)] hover:border-[var(--sec)] transition duration-300">
+                <div class="flex justify-between items-start mb-2">
+                  <h4 class="text-xl font-semibold text-[var(--white)]">{edu.degree}</h4>
+                  <span class="text-xs px-2.5 py-1 rounded-full bg-[var(--white-icon-tr)] text-[var(--white-icon)] whitespace-nowrap">
+                    {edu.duration}
+                  </span>
+                </div>
+                <p class="text-[var(--white-icon)] mb-2">{edu.institution}</p>
+                <p class="text-[var(--sec)] font-semibold text-sm">{edu.score}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Certifications Section -->
+      <div>
+        <h2 class="text-lg text-[var(--sec)] mb-2 shiny-sec">Achievements</h2>
+        <h3 class="text-4xl md:text-5xl font-medium mb-8">Certifications</h3>
+        <div class="space-y-4">
+          {
+            certList.map((cert) => (
+              <div class="p-4 rounded-xl bg-[#1414149c] border border-[var(--white-icon-tr)] hover:border-[var(--sec)] transition duration-300 flex justify-between items-center">
+                <div>
+                  <h4 class="text-lg font-medium text-[var(--white)]">{cert.title}</h4>
+                  <p class="text-sm text-[var(--white-icon)]">{cert.issuer} {cert.details ? `• ${cert.details}` : ''}</p>
+                </div>
+                <span class="text-xs text-[var(--sec)] whitespace-nowrap ml-4 font-medium">{cert.date}</span>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,72 @@
+---
+interface ExperienceItem {
+  role: string;
+  company: string;
+  duration: string;
+  description: string[];
+}
+
+const experiences: ExperienceItem[] = [
+  {
+    role: "Full Stack Developer",
+    company: "Multiicon",
+    duration: "6 Months",
+    description: [
+      "Worked on Angular and .NET full stack development projects.",
+      "Explored flight booking system workflows, APIs, repositories, and database operations.",
+      "Implemented Angular forms, validations, routing, and component communication.",
+      "Gained deep understanding of REST APIs, caching, payment modules, and booking workflows."
+    ]
+  },
+  {
+    role: "Automation Developer",
+    company: "Untie-It Technologies",
+    duration: "6 Months",
+    description: [
+      "Worked as an Automation Developer focusing on UiPath and RPA (Robotic Process Automation).",
+      "Built automated workflows with robust data handling and complex process logic.",
+      "Applied Flutter, Python, ML, and DBMS-based development techniques."
+    ]
+  },
+  {
+    role: "Teaching Assistance",
+    company: "Darshan University",
+    duration: "Nov 2024 - March 2025",
+    description: [
+      "Assisted in teaching Database Management Systems (DBMS-2) for BCA and BSc-IT students.",
+      "Guided students through project development and core conceptual understanding.",
+      "Led practical lab sessions and problem-solving activities."
+    ]
+  }
+];
+---
+
+<section id="experience" class="py-12 border-t border-[#ffffff10] text-[var(--white)]">
+  <div class="max-w-5xl mx-auto">
+    <h2 class="text-lg text-[var(--sec)] mb-2 shiny-sec">Career Journey</h2>
+    <h3 class="text-4xl md:text-5xl font-medium mb-8">Work Experience</h3>
+
+    <div class="space-y-6">
+      {
+        experiences.map((item) => (
+          <div class="p-6 rounded-2xl bg-[#1414149c] border border-[var(--white-icon-tr)] transition duration-300 hover:border-[var(--sec)]">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
+              <div>
+                <h4 class="text-2xl font-semibold text-[var(--white)]">{item.role}</h4>
+                <p class="text-[var(--sec)] text-lg font-medium">{item.company}</p>
+              </div>
+              <span class="text-sm px-3 py-1 rounded-full bg-[var(--white-icon-tr)] text-[var(--white-icon)] w-fit">
+                {item.duration}
+              </span>
+            </div>
+            <ul class="list-disc list-inside space-y-2 text-[var(--white-icon)]">
+              {item.description.map((point) => (
+                <li class="leading-relaxed">{point}</li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

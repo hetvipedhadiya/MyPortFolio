@@ -1,0 +1,57 @@
+---
+const technologies = [
+  { name: "Machine Learning", iconSvg: `<svg xmlns="http://www.w3.org/2000/svg" class="size-6 text-[var(--sec)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/><path d="M15 13a3 3 0 1 0-6 0"/></svg>` },
+  { name: "Python", iconSvg: `<svg xmlns="http://www.w3.org/2000/svg" class="size-6 text-[var(--sec)]" viewBox="0 0 24 24" fill="currentColor"><path d="M11.97 2c-5.06 0-4.75 2.19-4.75 2.19v2.28h4.84v.69H5.21S2 6.78 2 11.96c0 5.17 2.8 5.01 2.8 5.01h1.67v-2.35s-.09-2.8 2.76-2.8h4.75s2.67.04 2.67-2.61V4.62S17.03 2 11.97 2zm-2.6 1.48a.95.95 0 1 1 0 1.9.95.95 0 0 1 0-1.9zm2.66 18.52c5.06 0 4.75-2.19 4.75-2.19v-2.28h-4.84v-.69h6.85S22 17.22 22 12.04c0-5.17-2.8-5.01-2.8-5.01h-1.67v2.35s.09 2.8-2.76 2.8h-4.75s-2.67-.04-2.67 2.61v4.77S6.97 22 12.03 22zm2.6-1.48a.95.95 0 1 1 0-1.9.95.95 0 0 1 0 1.9z"/></svg>` },
+  { name: "Flutter", iconSvg: `<svg xmlns="http://www.w3.org/2000/svg" class="size-6 text-[var(--sec)]" viewBox="0 0 24 24" fill="currentColor"><path d="M14.314 0L2.3 12 6 15.7 21.686 0zm.057 11.071L8.314 17.129 14.371 23.186h6.057l-6.057-6.057z"/></svg>` },
+  { name: "ASP.NET Core", iconSvg: `<svg xmlns="http://www.w3.org/2000/svg" class="size-6 text-[var(--sec)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="8" x="2" y="2" rx="2"/><rect width="20" height="8" x="2" y="14" rx="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></svg>` },
+  { name: "Scikit-Learn", iconSvg: `<svg xmlns="http://www.w3.org/2000/svg" class="size-6 text-[var(--sec)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v12M6 12h12"/></svg>` },
+  { name: "NumPy & Pandas", iconSvg: `<svg xmlns="http://www.w3.org/2000/svg" class="size-6 text-[var(--sec)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>` },
+  { name: "DBMS & SQL", iconSvg: `<svg xmlns="http://www.w3.org/2000/svg" class="size-6 text-[var(--sec)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>` },
+  { name: "Java", iconSvg: `<svg xmlns="http://www.w3.org/2000/svg" class="size-6 text-[var(--sec)]" viewBox="0 0 24 24" fill="currentColor"><path d="M8.851 18.56s-.917.534.612.645c1.84.133 3.14-.08 4.79-.646 0 0 .54.341 1.15.54-2.22 1.05-6.32.96-8.52-.086 0 0-.25-.331.068-.453zm-1.07-2.341s-1.066.697.516.812c2.194.16 4.314-.047 6.643-.895 0 0 .42.378.892.548-2.91 1.258-7.39 1.246-10.024-.136 0 0-.306-.401.373-.329zm6.65-4.402s1.464-.698 1.067-1.745c-.328-.857-1.442-1.306-1.442-1.306s.31.25.132.885c-.25.89-1.57 1.545-1.57 1.545s2.21-.497 1.813.621z"/></svg>` },
+  { name: "Data Structures", iconSvg: `<svg xmlns="http://www.w3.org/2000/svg" class="size-6 text-[var(--sec)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="8" height="8" x="3" y="3" rx="2"/><rect width="8" height="8" x="13" y="3" rx="2"/><rect width="8" height="8" x="3" y="13" rx="2"/><rect width="8" height="8" x="13" y="13" rx="2"/></svg>` },
+  { name: "Angular", iconSvg: `<svg xmlns="http://www.w3.org/2000/svg" class="size-6 text-[var(--sec)]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5L2.6 5.8 4 17.5 12 21.5 20 17.5 21.4 5.8 12 2.5zM12 4.6l6.6 2.3-1 8.8-5.6 2.8-5.6-2.8-1-8.8L12 4.6z"/></svg>` },
+  { name: "HTML5 & CSS3", iconSvg: `<svg xmlns="http://www.w3.org/2000/svg" class="size-6 text-[var(--sec)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>` },
+  { name: "JavaScript", iconSvg: `<svg xmlns="http://www.w3.org/2000/svg" class="size-6 text-[var(--sec)]" viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h18v18H3V3zm10.72 13.9c.7 0 1.25-.26 1.63-.78.38-.52.57-1.25.57-2.18V9.12h-2.13v4.75c0 .48-.08.84-.25 1.08-.17.24-.43.36-.78.36-.26 0-.49-.07-.69-.21-.2-.14-.34-.34-.42-.6l-1.84.58c.2.66.57 1.18 1.1 1.56.53.38 1.14.57 1.81.57zm-6.28 0c.93 0 1.67-.28 2.22-.84.55-.56.83-1.33.83-2.31v-.38H8.36c0 .42.09.74.27.96.18.22.45.33.81.33.32 0 .58-.09.78-.27.2-.18.3-.43.3-.75 0-.27-.08-.49-.24-.66-.16-.17-.46-.35-.9-.54l-.76-.32c-.79-.34-1.36-.71-1.71-1.11-.35-.4-.53-.91-.53-1.53 0-.85.29-1.52.87-2.01.58-.49 1.35-.73 2.31-.73.87 0 1.57.23 2.1.69.53.46.83 1.1.9 1.92l-2.05.28c-.05-.44-.19-.77-.42-.99-.23-.22-.53-.33-.9-.33-.31 0-.56.08-.75.24-.19.16-.28.37-.28.63 0 .23.08.43.24.6.16.17.48.36.96.56l.76.32c.81.34 1.4.72 1.77 1.14.37.42.55.96.55 1.62 0 .96-.32 1.73-.96 2.31-.64.58-1.52.87-2.64.87-1.02 0-1.84-.27-2.46-.81-.62-.54-.97-1.32-1.05-2.34l2.09-.28c.07.56.24.99.51 1.29.27.3.66.45 1.17.45z"/></svg>` }
+];
+---
+
+<div class="relative overflow-x-hidden py-8">
+  <div class="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[var(--background)] to-transparent z-20"></div>
+  <div class="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[var(--background)] to-transparent z-20"></div>
+
+  <div class="flex animate-scroll w-max will-change-transform">
+    {
+      [...technologies, ...technologies].map((tech, index) => (
+        <div 
+          class="flex items-center gap-2.5 pr-12 md:pr-16 group transition-all duration-300"
+          aria-hidden={index >= technologies.length ? "true" : "false"}
+        >
+          <div set:html={tech.iconSvg} class="transition-transform group-hover:scale-110 opacity-80" />
+          <span class="text-lg font-medium text-[var(--white)] whitespace-nowrap">
+            {tech.name}
+          </span>
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<style is:global>
+  @keyframes scroll {
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+    100% {
+      transform: translate3d(-50%, 0, 0);
+    }
+  }
+  .animate-scroll {
+    animation: scroll 40s linear infinite;
+  }
+
+  @media (min-width: 768px) {
+    .animate-scroll {
+      animation-duration: 35s;
+    }
+  }
+</style>

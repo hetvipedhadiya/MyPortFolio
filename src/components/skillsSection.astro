@@ -1,0 +1,77 @@
+---
+interface SkillCategory {
+  category: string;
+  icon: string;
+  skills: string[];
+}
+
+const technicalSkills: SkillCategory[] = [
+  {
+    category: "Languages & Core",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="size-6 text-[var(--sec)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>`,
+    skills: ["Python", "Java", "C#", "HTML", "CSS", "JavaScript", "Data Structures"]
+  },
+  {
+    category: "Machine Learning & Data",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="size-6 text-[var(--sec)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/><path d="M15 13a3 3 0 1 0-6 0"/></svg>`,
+    skills: ["Machine Learning", "NumPy", "Pandas", "Scikit-learn"]
+  },
+  {
+    category: "Frameworks & Backend",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="size-6 text-[var(--sec)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="8" x="2" y="2" rx="2"/><rect width="20" height="8" x="2" y="14" rx="2"/></svg>`,
+    skills: ["Flutter", "ASP.NET Core", "Flask", "Angular", "DBMS", "SQL"]
+  }
+];
+
+const nonTechnicalSkills: string[] = [
+  "Teamwork",
+  "Quick Learner",
+  "Adaptability",
+  "Problem-Solving"
+];
+---
+
+<section id="skills" class="py-12 border-t border-[#ffffff10] text-[var(--white)]">
+  <div class="max-w-5xl mx-auto">
+    <h2 class="text-lg text-[var(--sec)] mb-2 shiny-sec">Expertise</h2>
+    <h3 class="text-4xl md:text-5xl font-medium mb-8">Technical & Professional Skills</h3>
+
+    <!-- Technical Skills Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+      {
+        technicalSkills.map((cat) => (
+          <div class="p-6 rounded-2xl bg-[#1414149c] border border-[var(--white-icon-tr)] hover:border-[var(--sec)] transition duration-300">
+            <div class="flex items-center gap-3 mb-4">
+              <div set:html={cat.icon} />
+              <h4 class="text-xl font-semibold text-[var(--white)]">{cat.category}</h4>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              {cat.skills.map((skill) => (
+                <span class="px-3 py-1.5 rounded-lg bg-[var(--white-icon-tr)] text-[var(--white)] text-sm font-medium border border-white/5 hover:border-[var(--sec)] transition">
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Non-Technical Skills -->
+    <div class="p-6 rounded-2xl bg-[#1414149c] border border-[var(--white-icon-tr)]">
+      <h4 class="text-lg font-semibold text-[var(--white)] mb-3 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="size-5 text-[var(--sec)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+        </svg>
+        Non-Technical & Soft Skills
+      </h4>
+      <div class="flex flex-wrap gap-3">
+        {nonTechnicalSkills.map((skill) => (
+          <span class="px-4 py-2 rounded-xl bg-gradient-to-r from-[#a476ff20] to-[#5e449120] text-[var(--white)] text-sm font-semibold border border-[var(--sec)]/30">
+            ✨ {skill}
+          </span>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
